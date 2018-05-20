@@ -3,11 +3,11 @@
  * Author:		Annie Wu
  * Class:		CS 241 - Data Structures and Algorithms II
  * 
- * Assignment:	Program 3
+ * Assignment:		Program 3
  * Date:		25 February 2018
  * 
  * Purpose:		This class contains the Binary Search Tree (BST)
- * 				and any functions regarding the BST. 
+ * 			and any functions regarding the BST. 
  */
 
 public class BinarySearchTree {
