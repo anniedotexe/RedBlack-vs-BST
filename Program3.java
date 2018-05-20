@@ -3,7 +3,7 @@
  * Author:		Annie Wu
  * Class:		CS 241 - Data Structures and Algorithms II
  * 
- * Assignment:	Program 3
+ * Assignment:		Program 3
  * Date:		28 February 2018
  * 
  * Purpose:		This file contains user interactions.
@@ -15,12 +15,12 @@ import java.util.*;
 public class Program3 {
 
 	private static String choices = "\n 1. Insert a value" +
-									  "\n 2. Delete a value" +
-									  "\n 3. Return count of leaves" +
-									  "\n 4. Return all values in the tree between a and b" +
-									  "\n 5. Delete the first 20 entries" +
-									  "\n 6. Exit the program" +
-									  "\n Command? ";
+					  "\n 2. Delete a value" +
+					  "\n 3. Return count of leaves" +
+					  "\n 4. Return all values in the tree between a and b" +
+					  "\n 5. Delete the first 20 entries" +
+					  "\n 6. Exit the program" +
+					  "\n Command? ";
 	private static String insertValue = "What value would you like to insert? ";
 	private static String deleteValue = "What value would you like to delete? ";
 	private static String thankyou = "Thank you for using my program!";
