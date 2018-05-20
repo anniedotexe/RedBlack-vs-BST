@@ -3,11 +3,11 @@
  * Author:		Annie Wu
  * Class:		CS 241 - Data Structures and Algorithms II
  * 
- * Assignment:	Program 3
+ * Assignment:		Program 3
  * Date:		25 February 2018
  * 
  * Purpose:		This class contains the nodes in the binary search tree and 
- * 				any functions regarding the nodes.
+ * 			any functions regarding the nodes.
  */
 
 public class BinaryNode {
