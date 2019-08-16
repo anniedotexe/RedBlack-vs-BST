@@ -1,5 +1,6 @@
 # Red Black Tree vs Binary Search Tree
 The program will automatically generate 100 random numbers and add them to the red-black tree and binary search tree.<br>
+
 The user can choose to:
 <li>Insert a value</li>
 <li>Delete a value</li>
