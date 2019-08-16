@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="RedBlack-vs-BST:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/RedBlack_vs_BST_jar</output-path>
+    <root id="archive" name="RedBlack-vs-BST.jar">
+      <element id="module-output" name="RedBlack-vs-BST" />
+    </root>
+  </artifact>
+</component>

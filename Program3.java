@@ -6,7 +6,7 @@
  * Assignment:		Program 3
  * Date:		28 February 2018
  * 
- * Purpose:		This file contains user interactions.
+ * Purpose:		This class contains user interactions.
  * 
  */
 
@@ -15,12 +15,13 @@ import java.util.*;
 public class Program3 {
 
 	private static String choices = "\n 1. Insert a value" +
-					  "\n 2. Delete a value" +
-					  "\n 3. Return count of leaves" +
-					  "\n 4. Return all values in the tree between a and b" +
-					  "\n 5. Delete the first 20 entries" +
-					  "\n 6. Exit the program" +
-					  "\n Command? ";
+									  "\n 2. Delete a value" +
+									  "\n 3. Return count of leaves" +
+									  "\n 4. Return all values in the tree between a and b" +
+									  "\n 5. Delete the first 20 entries" +
+									  "\n 6. Exit" +
+									  "\nEnter a number: ";
+	private static String initial = "Initial 100 random values in the trees: ";
 	private static String insertValue = "What value would you like to insert? ";
 	private static String deleteValue = "What value would you like to delete? ";
 	private static String thankyou = "Thank you for using my program!";
@@ -45,6 +46,9 @@ public class Program3 {
 		BinarySearchTree bst = new BinarySearchTree();
 		RedBlackTree rbt = new RedBlackTree();
 		Random random = new Random();
+
+		System.out.println(initial);
+
 		//for 100 randomly generated numbers
 		for(int j = 0; j < 100; j++) {
 			//+1 so it eliminates the possibility of getting the number 0
@@ -57,10 +61,12 @@ public class Program3 {
 			}
 			bst.insert(number);
 			rbt.add(number);
+			System.out.print(number + " ");
 		}
-		
+		System.out.println();
+
 		boolean exit = false;
-		while (exit == false) {
+		while (!exit) {
 			try {
 				System.out.print(choices);          
 				String choice = sc.next().toUpperCase();

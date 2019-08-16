@@ -6,8 +6,7 @@
  * Assignment:		Program 3
  * Date:		28 February 2018
  * 
- * Purpose:		This class contains the Red-Black tree
- * 			and any functions regarding the Red-Black tree. 
+ * Purpose:		This class contains the Red-Black tree and any functions regarding the Red-Black tree.
  */
 
 public class RedBlackTree {
@@ -20,8 +19,6 @@ public class RedBlackTree {
 	
 	private String theHeight = "\nThe height of the red-black tree is: ";
 	private String leafNumber = "\nNumber of leaves in red-black tree: ";
-
-
 	
 	/**
 	 * This is the default constructor.
@@ -36,8 +33,8 @@ public class RedBlackTree {
 	
 	/**
 	 * This is the function add.
-	 * The purpose is to call the recursive add function to 
-	 * insert a node into the red black tree.
+	 * The purpose is to call the recursive add function to insert a node into the red black tree.
+	 * @param data given value to add
 	 */
 	public void add(int data) {
 		if (this.root.isLeaf()) {
@@ -52,6 +49,8 @@ public class RedBlackTree {
 	/**
 	 * This is the function add.
 	 * The purpose is to recursively add the node into the tree.
+	 * @param root current node
+	 * @param data given value to add
 	 */
 	public void add(RedBlackNode root, int data) {
 		if (root.isLeaf()) {
@@ -75,6 +74,7 @@ public class RedBlackTree {
 	 * This is the function addHelper.
 	 * The purpose is to fix the tree to keep it balanced with the correct colored nodes
 	 * after a node has been added to the tree.
+	 * @param node current node
 	 */
 	public void addHelper(RedBlackNode node) {
 		//insert a red note
@@ -116,6 +116,7 @@ public class RedBlackTree {
 	 * This is the function remove.
 	 * The purpose is to call the recursive removeHelper function to delete
 	 * the node from the red-black tree.
+	 * @param data given value to remove
 	 */
 	public void remove(int data) {
 		RedBlackNode current = null;
@@ -135,6 +136,8 @@ public class RedBlackTree {
 	 * This is the function remove.
 	 * The purpose is to recursively remove the given node from
 	 * the red-black tree.
+	 * @param node current node
+	 * @param data given value to remove
 	 */
 	public void removeHelper(RedBlackNode node, int data) {
 		RedBlackNode child = null;
@@ -190,6 +193,7 @@ public class RedBlackTree {
 	 * This is the function removeHelper2.
 	 * The purpose is to remove a node and fix the tree to keep it fixTreed 
 	 * with the correct colored nodes.
+	 * @param node current node
 	 */
 	public void removeHelper2(RedBlackNode node) {
 		if (node.parent == null)
@@ -296,15 +300,20 @@ public class RedBlackTree {
      * This is the function searchForNode.
      * The purpose is to call the recursive function searchForNode
      * with the given value.
-     */
-    public RedBlackNode searchForNode(int value) {
+	 * @param value given value
+	 * @return value we are looking for
+	 */
+	public RedBlackNode searchForNode(int value) {
     	return searchForNode(root, value);
     }
     
     /**
      * This is the function searchForNode.
      * The purpose is to recursively search for the node of the entered value.
-     */
+	 * @param node current node
+	 * @param value given value
+	 * @return value we are looking for
+	 */
     public RedBlackNode searchForNode(RedBlackNode node, int value) {
     	RedBlackNode found = null;
     	while ((node != null)) {
@@ -337,7 +346,6 @@ public class RedBlackTree {
 	 * and return the height and number of leaves in the tree.
 	 */
 	public void delete20() {
-
 		getHeight();
 		getNumberOfLeaves();
 	}
@@ -345,8 +353,10 @@ public class RedBlackTree {
     /**
      * This is the function predecessor.
      * The purpose is to get the inorder predecessor of a node.
-     */
-    public RedBlackNode predecessor(RedBlackNode node) {
+	 * @param node current node
+	 * @return the predecessor
+	 */
+	public RedBlackNode predecessor(RedBlackNode node) {
     	RedBlackNode pred = null;
     	if (isLeftChild(node)) {
     		pred = node.left;
@@ -370,7 +380,8 @@ public class RedBlackTree {
 	/**
 	 * This is the function isRedNode.
 	 * The purpose is to check to see if a node is red.
-	 * It will return true if it is RED.
+	 * @param node current node
+	 * @return true if node is red
 	 */
 	public boolean isRedNode(RedBlackNode node) {
 		if (node == null)
@@ -382,6 +393,8 @@ public class RedBlackTree {
 	/**
 	 * This is the function colorSwap.
 	 * The purpose is the swap the color of two nodes.
+	 * @param node1 first node
+	 * @param node2 second node
 	 */
 	public void colorSwap(RedBlackNode node1, RedBlackNode node2) {
 		boolean temporary = node1.color;
@@ -392,6 +405,7 @@ public class RedBlackTree {
 	/**
 	 * This is the function rotateLeft.
 	 * The purpose is to rotate to the left (counter clockwise).
+	 * @param current current node
 	 */
 	public void rotateLeft(RedBlackNode current) {
 		RedBlackNode oldRightChild = current.right;
@@ -406,7 +420,8 @@ public class RedBlackTree {
 	/**
 	 * This is the function rotateRight.
 	 * The purpose is to rotate to the right (clockwise).
-	 */	
+	 * @param current current node
+	 */
 	public void rotateRight(RedBlackNode current) {
 		RedBlackNode oldLeftChild = current.left;
 		swapNode(current, oldLeftChild);
@@ -420,6 +435,8 @@ public class RedBlackTree {
 	/**
 	 * This is the function isLeftChild.
 	 * The purpose is to check to see if a node is a left child.
+	 * @param current current node
+	 * @return true if node is a left child
 	 */
 	public boolean isLeftChild(RedBlackNode current) {
 		boolean isLeft = true;
@@ -435,6 +452,8 @@ public class RedBlackTree {
 	/**
 	 * This is the function isOuterChild.
 	 * The purpose is to check to see if a node is an outer node.
+	 * @param current current node
+	 * @return true if node is an outer child
 	 */
 	public boolean isOuterChild(RedBlackNode current) {
 		boolean outer = true;
@@ -458,6 +477,8 @@ public class RedBlackTree {
 	/**
 	 * This is the function outerChild.
 	 * The purpose is to return the outer child of a given node.
+	 * @param current current node
+	 * @return the outer child node
 	 */
 	public RedBlackNode outerChild(RedBlackNode current) {
 		if (isLeftChild(current))
@@ -470,6 +491,8 @@ public class RedBlackTree {
 	/**
 	 * This is the function innerChild.
 	 * The purpose is to return the inner child of a given node.
+	 * @param current current node
+	 * @return the inner child node
 	 */
 	public RedBlackNode innerChild(RedBlackNode current) {
 		if (isLeftChild(current))
@@ -483,6 +506,8 @@ public class RedBlackTree {
 	/**
 	 * This is the function swap.
 	 * The purpose is to swap two nodes.
+	 * @param node current node
+	 * @param oldNode old node
 	 */
 	public void swapNode(RedBlackNode node, RedBlackNode oldNode) {
 		if (node == root) {
@@ -503,11 +528,16 @@ public class RedBlackTree {
 	/**
 	 * This is the function isEmpty.
 	 * The purpose is to check to see if the tree is empty.
+	 * @return true if tree has no nodes
 	 */
 	public boolean isEmpty() {
 		return root == null;
 	}
-	
+
+	/**
+	 * This is the function getHeight.
+	 * the purpose is to print the height of the tree.
+	 */
 	public void getHeight() {
 		System.out.print(theHeight + getHeight(root));
 	}
@@ -529,16 +559,22 @@ public class RedBlackTree {
 		}
 		return height;
     }
-    
-    public void getNumberOfLeaves() {
+
+	/**
+	 * This is the function getNumberOfLeaves.
+	 * The purpose is to print the number of leaves in the tree.
+	 */
+	public void getNumberOfLeaves() {
     	System.out.print(leafNumber + getNumberOfLeaves(root));
     }
     
     /**
      * This is the function getNumberOfLeaves.
      * The purpose is to get the number of leaves in the tree.
-     */
-    public int getNumberOfLeaves(RedBlackNode root) {
+	 * @param root current node
+	 * @return number of leaves in the tree
+	 */
+	public int getNumberOfLeaves(RedBlackNode root) {
     	if (root == null)
             return 0;
         if (root.isLeaf())
@@ -551,21 +587,28 @@ public class RedBlackTree {
     /**
      * This is the function exists.
      * The purpose is to check to see if a value exists in the tree.
-     */
+	 * @param value given value
+	 * @return true if value exists
+	 */
 	public boolean exists(int value) {
 		if (root == null)
         	return false;
         else
         	return root.exists(value);
 	}
-	
+
+	/**
+	 * This is the function preorder.
+	 * The purpose is to get the preorder traversal of the tree.
+	 */
     public void preorder() {
         preorder(this.root);
     }
 
     /**
      * This is the recursive function for preorder traversal.
-     * @param node
+	 * The purpose is to get the preorder traversal of the tree.
+     * @param node current node
      */
     public void preorder(RedBlackNode node) {
     	if (node != null) {

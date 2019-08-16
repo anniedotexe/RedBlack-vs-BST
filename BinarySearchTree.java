@@ -33,6 +33,7 @@ public class BinarySearchTree {
 	 * This is the constructor when the user inputs a value.
 	 * The purpose is to create a new node with that value and 
 	 * set it as the root node.
+	 * @param rootEntry new node
 	 */
 	public BinarySearchTree(int rootEntry) {
 		root = new BinaryNode(rootEntry);
@@ -42,7 +43,7 @@ public class BinarySearchTree {
 	 * This is the function insert.
 	 * The purpose is to take an integer to insert into the BinarySearchTree
 	 * and call the recursive insert function.
-	 * 
+	 * @param value given value to insert
 	 */
 	public void insert(int value) {
 		this.root = insertHelper(this.root, value);
@@ -51,6 +52,9 @@ public class BinarySearchTree {
 	/**
 	 * This is the function insertHelper. 
 	 * The purpose is to recursively insert a node and its value into the BinarySearchTree.
+	 * @param root current node
+	 * @param value value to insert
+	 * @return node that is inserted
 	 */
 	 public BinaryNode insertHelper(BinaryNode root, int value) {
 	        //if the BinarySearchTree is empty, it will add a new node
@@ -72,6 +76,7 @@ public class BinarySearchTree {
 	 * This is the function delete.
 	 * The purpose is to delete a value from the user and 
 	 * call the recursive delete function.
+	 * @param value value to delete
 	 */
 	public void delete(int value) {
 		if (isEmpty()) 
@@ -87,6 +92,9 @@ public class BinarySearchTree {
 	/**
 	 * This is the function deleteHelper.
 	 * The purpose is to recursively delete a now and its value in the BinarySearchTree.
+	 * @param root current node
+	 * @param value value to delete
+	 * @return node that is deleted
 	 */
 	public BinaryNode deleteHelper(BinaryNode root, int value) {
 		if (root != null) {
@@ -127,7 +135,6 @@ public class BinarySearchTree {
 	 * and return the height and number of leaves in the tree.
 	 */
 	public void delete20() {
-
 		getHeight();
 		getNumberOfLeaves();
 	}
@@ -135,6 +142,8 @@ public class BinarySearchTree {
 	/**
 	 * This is the function deleteMin.
 	 * The purpose is to delete the minimum value in the BinarySearchTree.
+	 * @param root current node
+	 * @return node that is deleted
 	 */
 	public BinaryNode deleteMin(BinaryNode root) {
 	    if(root.getLeft() == null) {
@@ -147,6 +156,8 @@ public class BinarySearchTree {
 	/**
 	 * This if the function getLeftmost.
 	 * The purpose is to recursively get the leftmost node.
+	 * @param root current node
+	 * @return leftmost node
 	 */
 	public BinaryNode getLeftmost(BinaryNode root) {
 		if (!root.hasLeft())
@@ -158,6 +169,8 @@ public class BinarySearchTree {
 	/**
 	 * This is the function getRightmost.
 	 * The purpose is to recursively get the rightmost node.
+	 * @param root current node
+	 * @return rightmost node
 	 */
 	public BinaryNode getRightmost(BinaryNode root) {
 		if (!root.hasRight())
@@ -169,7 +182,8 @@ public class BinarySearchTree {
 	/**
 	 * This is the function search.
 	 * The purpose is to search for a value in the BinarySearchTree.
-	 * It will return true if found or false if it does not exist.
+	 * @param value given value
+	 * @return true if value exists
 	 */
 	public boolean search(int value) {
         return search(root, value);
@@ -178,7 +192,9 @@ public class BinarySearchTree {
 	/**
 	 * This is the function search.
 	 * The purpose is to recursively search for a given node and value in the BinarySearchTree.
-	 * It will return true if found or false if it does not exist.
+	 * @param node current node
+	 * @param value given value
+	 * @return true if value exists
 	 */
     public boolean search(BinaryNode node, int value) {
     	//start with the found node as false
@@ -216,15 +232,20 @@ public class BinarySearchTree {
      * This is the function searchForNode.
      * The purpose is to call the recursive function searchForNode
      * with the given value.
-     */
-    public BinaryNode searchForNode(int value) {
+	 * @param value given value
+	 * @return node we are looking for
+	 */
+	public BinaryNode searchForNode(int value) {
     	return searchForNode(root, value);
     }
     
     /**
      * This is the function searchForNode.
      * The purpose is to recursively search for the node of the entered value.
-     */
+	 * @param node current node
+	 * @param value given node
+	 * @return node we are looking for
+	 */
     public BinaryNode searchForNode(BinaryNode node, int value) {
     	BinaryNode found = null;
     	while ((node != null)) {
@@ -255,20 +276,27 @@ public class BinarySearchTree {
 	/**
 	 * This is the function isEmpty.
 	 * The purpose is to check to see if the tree is empty.
+	 * @return true if tree has no nodes
 	 */
 	public boolean isEmpty() {
 		return root == null;
 	}
-    
-    public void getNumberOfLeaves() {
+
+	/**
+	 * This is the function getNumberOfLeaves.
+	 * The purpose is to print the number of leaves in the tree
+	 */
+	public void getNumberOfLeaves() {
     	System.out.print(leafNumber + getNumberOfLeaves(root));
     }
     
     /**
      * This is the function getNumberOfLeaves.
      * The purpose is to get the number of leaves in the tree.
-     */
-    public int getNumberOfLeaves(BinaryNode root) {
+	 * @param root current node
+	 * @return number of leaves in the tree
+	 */
+	public int getNumberOfLeaves(BinaryNode root) {
     	if (root == null)
             return 0;
         if (root.isLeaf())
@@ -280,8 +308,7 @@ public class BinarySearchTree {
     
     /**
      * This is the function getHeight.
-     * The purpose is to call the recursive function getHeight
-     * to get the height of the tree.
+     * The purpose is to call the recursive function getHeight to get the height of the tree.
      */
     public void getHeight() {
     	System.out.print(theHeight + getHeight(root));
@@ -290,8 +317,10 @@ public class BinarySearchTree {
     /**
      * This is the function getHeight.
      * The purpose is to get the height of the tree.
-     */
-    public int getHeight(BinaryNode root) {
+	 * @param root current node
+	 * @return height of the tree
+	 */
+	public int getHeight(BinaryNode root) {
     	int height = 0;
     	if (root != null) {
     		height = Math.max(getHeight(root.left), getHeight(root.right)) + 1;
@@ -302,7 +331,9 @@ public class BinarySearchTree {
     /**
      * This is the function exists.
      * The purpose is to check to see if a value exists in the tree.
-     */
+	 * @param value given value
+	 * @return true if value exists
+	 */
 	public boolean exists(int value) {
 		if (root == null)
         	return false;
@@ -314,15 +345,20 @@ public class BinarySearchTree {
      * This is the function printInRange.
      * The purpose is to call the recursive function printInRange
      * to print the values in the range of a and b.
-     */
-    public void printInRange(int a, int b) {
+	 * @param a start of range
+	 * @param b end of range
+	 */
+	public void printInRange(int a, int b) {
     	printInRange(root, a, b);
     }
     /**
      * This is the function printInRange.
      * The purpose is to print out all values in the range of
      * a and b from the user input relative to the root node.
-     */
+	 * @param node current node
+	 * @param a start of range
+	 * @param b end of range
+	 */
     public void printInRange(BinaryNode node, int a, int b) {
     	if (node == null)
     		return;
@@ -336,14 +372,19 @@ public class BinarySearchTree {
     	if (b > node.getValue())
     		printInRange(node.right, a, b);
     }
-	
-    public void preorder() {
+
+	/**
+	 * This is the function preorder.
+	 * The purpose is to get the preorder traversal of the tree.
+	 */
+	public void preorder() {
         preorder(root);
     }
 
     /**
      * This is the recursive function for preorder traversal.
-     * @param node
+	 * The purpose is to get the preorder traversal of the tree.
+     * @param node current node
      */
     public void preorder(BinaryNode node) {
     	if (node != null) {

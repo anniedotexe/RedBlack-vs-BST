@@ -6,8 +6,7 @@
  * Assignment:		Program 3
  * Date:		28 February 2018
  * 
- * Purpose:		This class contains the nodes in the red-black tree and 
- * 			any functions regarding the nodes.
+ * Purpose:		This class contains the nodes in the red-black tree and any functions regarding the nodes.
  */
 
 public class RedBlackNode extends BinaryNode{
@@ -22,7 +21,8 @@ public class RedBlackNode extends BinaryNode{
     /**
      * This is a constructor.
      * It creates a new node.
-     */
+	 * @param value value of the node
+	 */
 	public RedBlackNode(int value) {
 		this(value, null, null, null);
 	}
@@ -30,6 +30,10 @@ public class RedBlackNode extends BinaryNode{
 	/**
 	 * This is a constructor.
 	 * It creates a new node with more parameters.
+	 * @param value value of the node
+	 * @param left left node
+	 * @param right right node
+	 * @param parent parent node
 	 */
 	public RedBlackNode(int value, RedBlackNode left, RedBlackNode right, RedBlackNode parent) {
 		this.value = value;
@@ -42,6 +46,7 @@ public class RedBlackNode extends BinaryNode{
 	/**
 	 * This is the function sibling.
 	 * The purpose is to get the node's sibling if one exists.
+	 * @return node's sibling
 	 */
 	public RedBlackNode sibling() {
 		if (this.parent != null) {
@@ -55,7 +60,8 @@ public class RedBlackNode extends BinaryNode{
 	
 	/**
 	 * This is the function grandparent.
-	 * The purpose is to get the node's grandparent if one exists. 
+	 * The purpose is to get the node's grandparent if one exists.
+	 * @return node's grandparent
 	 */
 	public RedBlackNode grandparent() {
 		if (this.parent.parent != null)
@@ -67,6 +73,7 @@ public class RedBlackNode extends BinaryNode{
 	/**
 	 * This is the function uncle.
 	 * The purpose is to get the node's uncle if one exists.
+	 * @return node's uncle
 	 */
 	public RedBlackNode uncle() {
 		if (this.parent.sibling() != null)
